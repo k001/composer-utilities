@@ -96,7 +96,7 @@ if __name__ == "__main__":
                     image_version = line.strip()
                     break
         tag = get_docker_image_tag_from_image_version(image_version)
-        print(f'{},tag)
+        print(tag)
     except Exception as e:  # noqa: BLE001
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
