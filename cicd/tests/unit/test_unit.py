@@ -25,6 +25,8 @@ def dagbag():
     dags_path = str((Path(__file__).parent.parent.parent / "dags").resolve())
     sys.path.insert(0, dags_path)
     import airflow  # Used only to check version for backward compatibility
+    import airflow.providers.cncf.kubernetes.operators.pod
+    import airflow.providers.google.cloud.operators.bigquery
 
     kwargs = {"include_examples": False} if airflow.__version__.startswith("2.") else {}
     yield DagBag(dag_folder=dags_path, **kwargs)
